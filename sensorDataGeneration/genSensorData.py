@@ -5,7 +5,7 @@ import random
 import time
 
 
-edgexip = '10.42.0.188'
+edgexip = '127.0.0.1'
 humval = 40
 tempval = 23
 
