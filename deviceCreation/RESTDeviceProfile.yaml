@@ -1,0 +1,48 @@
+name: "colorChanger"
+manufacturer: "jonamiki.com"
+model: "ABCDE12345"
+labels:
+  - "color changer"
+  - "test app"
+description: "Test app for EdgeX Foundry REST commands."
+
+deviceResources:
+  - name: color
+    description: "JSON message"
+    properties:
+      value:
+        { type: "String", readWrite: "W" , mediaType : "application/json" }
+      units:
+        { type: "String", readWrite: "R" }
+
+deviceCommands:
+  - name: "color"
+    get:
+      - { operation: "get", deviceResource: "color" }
+    set:
+      - { operation: "set", deviceResource: "color", parameter: "color" }
+
+coreCommands:
+  -
+    name: color
+    get:
+      path: "/api/v1/device/{deviceId}/changeColor"
+      responses:
+      -
+        code: "200"
+        description: "get current color"
+        expectedValues: ["color"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/changeColor"
+      responses:
+      -
+        code: "201"
+        description: "set the color"
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
