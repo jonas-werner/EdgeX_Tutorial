@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 #################################################################
 #     ____  __  ________   ___      ______    __          _  __
 #    / __ \/ / / /_  __/  |__ \    / ____/___/ /___ ____ | |/ /
@@ -20,6 +20,8 @@ edgexip = "<edgex ip>"
 
 while True:
 
+    # Update to match DHT sensor type and GPIO pin
+    # DHT11 and GPIO pin 6 used in example
     rawHum, rawTmp = Adafruit_DHT.read_retry(11, 6)
 
     urlTemp = 'http://%s:49986/api/v1/resource/Temp_and_Humidity_sensor_cluster_01/temperature' % edgexip
@@ -34,7 +36,7 @@ while True:
         response = requests.post(urlTemp, data=json.dumps(int(rawTmp)), headers=headers,verify=False)
         response = requests.post(urlHum, data=json.dumps(int(rawHum)), headers=headers,verify=False)
 
-        print('Temp: {} C, humidity: {} %').format(tempval, humval)
+        print("Temp: %s\N{DEGREE SIGN}C, humidity: %s%%" % (tempval, humval))
 
 
     time.sleep(2)
