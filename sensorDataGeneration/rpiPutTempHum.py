@@ -2,12 +2,14 @@
 
 import sys, time, requests, json, Adafruit_DHT
 
+edgexip = "<edgex ip>"
+
 while True:
 
     rawHum, rawTmp = Adafruit_DHT.read_retry(11, 6)
 
-    urlTemp = 'http://10.42.0.188:49986/api/v1/resource/Temp_and_Humidity_sensor_cluster_01/temperature'
-    urlHum  = 'http://10.42.0.188:49986/api/v1/resource/Temp_and_Humidity_sensor_cluster_01/humidity'
+    urlTemp = 'http://%s:49986/api/v1/resource/Temp_and_Humidity_sensor_cluster_01/temperature' % edgexip
+    urlHum  = 'http://%s:49986/api/v1/resource/Temp_and_Humidity_sensor_cluster_01/humidity' % edgexip
 
     humval  = str(rawHum)
     tempval = str(rawTmp)
