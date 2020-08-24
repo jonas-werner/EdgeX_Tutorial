@@ -147,8 +147,8 @@ def addNewDevice():
 
 
 if __name__ == "__main__":
-    #createAddressables()
-    #createValueDescriptors()
-    #uploadDeviceProfile()
-    #createDeviceService()
+    createAddressables()
+    createValueDescriptors()
+    uploadDeviceProfile()
+    createDeviceService()
     addNewDevice()
