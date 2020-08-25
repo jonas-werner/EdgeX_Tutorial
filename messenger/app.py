@@ -20,9 +20,9 @@ from datetime import datetime
 # Set environment variables
 # MQTTT authentication + port need to be set separately
 # on line 92 and 95 if required
-broker_address  = "127.0.0.1"
+broker_address  = "<edgex ip>"
 topic           = "edgex-tutorial"
-dbhost          = "IP-ADDRESS-OF-DB-HOST"
+dbhost          = "<edgex ip>"
 dbport          = 8086
 dbuser          = "root"
 dbpassword      = "pass"
